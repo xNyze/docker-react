@@ -1,0 +1,13 @@
+FROM node:alpine
+
+#Erstellen eines Arbeitsverzeichnisses
+WORKDIR "/app"
+
+#Kopiert package.json in das Arbeitsverzeichnis und führt npm install aus
+COPY package.json .
+RUN npm install
+
+#Kopiert die restlichen Inhalte aus dem Verzeichnis frontend in das Arbeitsverzeichnis
+ COPY . .
+
+CMD ["npm", "run", "start"]   
